@@ -1,0 +1,27 @@
+npx aws-api-gateway-cli-test \
+--username='testuser1@pkgk.nl' \
+--password='Btz3RaK6dMDpA' \
+--user-pool-id='eu-west-1_UtXX0Ipw1' \
+--app-client-id='4ovf5hj0mgtoijpsgvju4difm1' \
+--cognito-region='eu-west-1' \
+--identity-pool-id='eu-west-1:ff17fb5d-ceb0-4dbc-80c7-fc685ab19ead' \
+--invoke-url='https://neo90xl2ug.execute-api.eu-west-1.amazonaws.com/prod' \
+--api-gateway-region='eu-west-1' \
+--path-template='/notes' \
+--method='POST' \
+--body='{"content":"hello world","attachment":"hello.jpg"}'
+
+
+sign-up subcommand cognito idp
+aws cognito-idp sign-up \
+   --region eu-west-1 \
+   --client-id 4ovf5hj0mgtoijpsgvju4difm1 \
+   --username testuser1@pkgk.nl \
+   --password Btz3RaK6dMDpA \
+   --user-attributes Name=email,Value=testuser1@pkgk.nl
+
+admin-confirm-sign-up
+aws cognito-idp admin-confirm-sign-up \
+--user-pool-id 4ovf5hj0mgtoijpsgvju4difm1 \
+--username testuser1@pkgk.nl
+of confirm user op de console, dat werkte wel
